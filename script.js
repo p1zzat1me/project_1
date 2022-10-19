@@ -68,12 +68,28 @@ appData.optionalExpenses [c] = d;
   }
 },
 chooseIncome:function(){
-  let items = prompt("что принесет доп доход? (перечислити через запятую)",'');
+  let items = prompt("что принесет доп доход? (перечислите через запятую)",'');
   appData.income = items.split(', ');
   appData.income.push(prompt('Может что-то еще?'));
   appData.income.sort();
+  while((!/^[а-яА-Я, ]+$/.test(items))||items==''||items==null){
+    items = prompt("что принесет доп доход? (перечислите через запятую)",'');
+  }
+  appData.income.forEach(function(items,i){
+    alert("способы доп заработка: " + (i+1) + ") " + items);
+    });
+  // чета не то appData.income.forEach(items => alert("способы доп заработка: " + (Number(appData.income.indexOf(appData.income.items))++) + ") " + items));
+  // for(let key in appData.income){
+  //   alert("способы доп заработка: " + key + ") " + appData.income[key]);
+  // }
+  }
+};
+function allProps(){
+for(let key in appData){
+  alert("Our programm includes: " +  appData[key] + '-'+ key)
 }
 };
+allProps();
 
 /*let ind = 0;
 while (ind < 2){
